@@ -1,29 +1,41 @@
+
 package hospitor;
 
-public class Admin {
-    int i=0;
-     Doctor doct =new Doctor();
-    
-    
-        
-    void check_TrxID(TrxID pmnt){
-    if(pmnt.payment== true)    
-    { i++;
-        System.out.println("You can meet with doctor .Your Seriol number : "+i);
-    
-    Patient mehedy = new Patient("Mehedy Hasan","Tonsil pain");
+public class Admin implements IBonus {
+    private String ID;
+    private int docFee;
+    int Salary;
   
-    doct.seePatient(mehedy);
-    
+    Admin(String id,int salary){
+       ID= id;
+       Salary=salary;
     }
-    else
-     System.out.println("please pay first");   
+
+     @Override
+    public void CalculateBoishakhBonus(){
         
+       System.out.println("Admin Boishakh Bonus is "+Salary*0.50);  
     }
     
-    void check_Doctor_Performance(Doctor per){
-      if(per.count>=5) 
-          per.salary += per.salary*0.1;
+    
+    
+    public void setFee(int fee) {
+    this.docFee = fee;
     }
     
-}
+    public int getfee(){
+        return docFee;
+    }
+    
+    
+
+    
+    
+      Admin(){  
+    }
+  }
+    
+    
+   
+    
+
