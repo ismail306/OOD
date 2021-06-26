@@ -1,32 +1,37 @@
 
 package hospitor;
+import java.util.*; 
 
-
-public class Admin2 extends Admin{ 
-    //Encapsulation
-    protected String CovidtrxID="SAJID407";
+public class Admin2 extends Admin implements IBonus { 
+    
+    String time;
+    
+int serialno;
+   
         Admin2(String id,int Salary){
 
 super(id,Salary);
 
 }
+          @Override
+    public void CalculateBoishakhBonus(){
+        
+       System.out.println("Admin Boishakh Bonus is "+Salary*0.50);  
+    }
+    
      void VerifyTrancsection(CovidPatient CP) {
-         if(this.CovidtrxID==CP.TrxID ){
+         if("SAJID407".equals(CP.TrxID) ){
         System.out.println("We Have Received Your Payment");
-         //if(CP.AmbuLance=="Need Ambulance" && CP.AmbulanceType=="Non AC") {
-             NonAC_Ambulance naca=new NonAC_Ambulance("NON AC Ambulance","017-XXXXXXXX");
-             naca.Ambulance_Status();
-             naca.Display_AmbulanceInfo();
-             naca.AmbulanceLoation("Uttara");
-
-            
-           //}
-          //if(CP.department=="Covid"){
-               Covid cv =new Covid(CP.department,05,"4.00 PM",CP.DocType,CP.disease);
+       Scanner input= new Scanner(System.in); 
+     System.out.print("Enter Patient Visiting Time : ");
+     time= input.nextLine();
+     System.out.print("Enter Patient  Serial NO : ");
+      serialno= input.nextInt(); 
+               Covid cv =new Covid(CP.department,serialno,time,CP.disease);
                cv.ShowVisitingTime();
                cv.Checksit();
-               cv.CheckDocType();
-          // }
+               
+          
           
 }
      
@@ -36,5 +41,10 @@ super(id,Salary);
                 
                 }   
 }
+   
+     
+    Admin2(){
+      
+  } 
      
 }

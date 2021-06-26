@@ -1,34 +1,42 @@
 package hospitor;
+import java.util.*;  
 
-
-class Admin1 extends Admin {
+class Admin1 extends Admin implements IBonus {
     
        //Encapsulation
+String time;
+int serialno;
 
-    protected String ENTTrxID="ISMAIL427";
 
    Admin1(String ID,int Salary){
        super(ID,Salary);
        
        
    }
+   
+     @Override
+    public void CalculateBoishakhBonus(){
+        
+       System.out.println("Admin Boishakh Bonus is "+Salary*0.50);  
+    }
+    
+   
    //Encapsulation Implements
     protected void VerifyTrancsection(ENT_patient entp) {
-        if(this.ENTTrxID==entp.TrxID){
+        
+        if("ISMAIL427".equals(entp.TrxID)){
+            
              System.out.println("We Have Received Your Payment");
-          // if(entp.AmbuLance=="Need Ambulance" && entp.AmbulanceType=="AC") {
-             AC_Ambulance aca=new AC_Ambulance("AC Ambulance","019-XXXXXXXX");
-             aca.Ambulance_Status();
-             aca.Display_AmbulanceInfo();
-             aca.AmbulanceLoation("Dhanmondy");
-               
-          // }
-           //if(entp.department=="ENT"){
-               ENT en =new ENT(entp.department,10,"3.15 PM",entp.DocType,entp.disease);
+           Scanner input= new Scanner(System.in); 
+     System.out.print("Enter Patient Visiting Time : ");
+     time= input.nextLine();
+     System.out.print("Enter Patient  Serial NO : ");
+      serialno= input.nextInt(); 
+               ENT en =new ENT(entp.department,serialno,time,entp.disease);
                en.ShowVisitingTime();
                en.waitingtime();
-               en.CheckDocType();
-           //}
+               
+          
         }
          else
         {
@@ -37,7 +45,9 @@ class Admin1 extends Admin {
                 }
             
     }
-  
+  Admin1(){
+      
+  }
      
  }   
 

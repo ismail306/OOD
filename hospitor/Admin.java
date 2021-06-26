@@ -1,7 +1,7 @@
 
 package hospitor;
 
-public class Admin implements IBonus {
+public class Admin {
     private String ID;
     private int docFee;
     int Salary;
@@ -11,12 +11,7 @@ public class Admin implements IBonus {
        Salary=salary;
     }
 
-     @Override
-    public void CalculateBoishakhBonus(){
-        
-       System.out.println("Admin Boishakh Bonus is "+Salary*0.50);  
-    }
-    
+   
     
     
     public void setFee(int fee) {

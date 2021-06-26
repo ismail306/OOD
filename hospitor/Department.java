@@ -6,11 +6,10 @@ public class Department  {
     String Depnm;
     int serial_No;
     String Time,DocType,Disease;
-    Department(String depnm,int srl,String tm,String DT,String pd){
+    Department(String depnm,int srl,String tm,String pd){
         Depnm=depnm;
         serial_No=srl;
         Time =tm;  
-        DocType=DT;
         Disease=pd;
     }
    
@@ -21,17 +20,6 @@ public class Department  {
       
         
     }
-    void CheckDocType(){
-        if(DocType=="Intern Doctor"){
-         InternDoctor Id=new InternDoctor(Disease);
-         Id.give_prescription();
-        }
-        else{
-         SeniorDoctor Sd=new SeniorDoctor(Disease);
-          Sd.give_prescription();
-        }
-        
-        
-    }
+    
     
 }
